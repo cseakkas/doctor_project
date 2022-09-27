@@ -1,0 +1,150 @@
+{% extends 'doctor/base.html' %}
+{% block title %} My Profile {% endblock %}
+{% load staticfiles %}
+{% block content %}
+ 
+    <!--/news-->
+    <section class="offer-service bg-light py-md-5 py-4">
+        <div class="container">
+            <div class="inner-sec py-md-5 py-4">
+                <div class="row" id="view_profile">
+                    <div class="col-sm-3">
+                        <div class="profile_pic">
+                            <img src="/static/doctor/media/{{ profile.profile_picture }}" alt="">
+                        </div>
+                    </div>
+                    <div class="col-sm-9">
+                        <div class="profile_details">
+                            <div class="personal_info">
+                                <h3 style="text-align:left;">{{ profile.full_name}}</h3>
+                                <h4>{{ profile.qualification}}</h4>
+                                <h4>{{ profile.specialist}}</h4>
+                                <h4>{{ profile.specialist2}}</h4>
+                                <h4>{{ profile.specialist3}}</h4>
+                                <h4>{{ profile.specialist4}}</h4>
+                                <h4>{{ profile.designation}}</h4>
+                                <h4>{{ profile.working_place}}</h4> <br>
+                                
+                            </div>
+                            <div class="personal_details">
+                                    {{ profile.profile_message|safe }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12" id="academin_info"> 
+                <h3 style=" color: #ef248f;text-align: center;font-size: 37px;">Academic Qualification</h3><hr />
+                <table class="table table-striped table-bordered">
+                    <tr>
+                        <th style="width:50px;">SL</th>
+                        <th>Education Label</th>
+                        <th>Institute Name</th>
+                        <th>Group</th>
+                        <th>Board</th>
+                        <th>Passing Year</th>
+                        <th>Division/Grade</th>
+                    </tr>
+                    {% for data in academic_info %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ data.education_label }}</td>
+                        <td>{{ data.institute_name }}</td>
+                        <td>{{ data.group }}</td>
+                        <td>{{ data.board }}</td>
+                        <td>{{ data.passing_year }}</td>
+                        <td>{{ data.division }}</td>
+                    </tr>
+                    {% endfor %}
+                    
+                    
+                </table>
+            </div>	
+            <div class="col-sm-12" id="academin_info"> 
+                <h3 style=" color: #ef248f;text-align: center;font-size: 37px;">Experience(Home and Abroad)</h3><hr />
+                <table class="table table-striped table-bordered">
+                    <tr>
+                        <th style="width:50px;">#</th>
+                        <th>Course Name</th>
+                        <th>Institute/Awording body</th>
+                        <th>Duration</th>
+                        <th>Country</th>
+                        <th>Remarks</th>
+                    </tr>
+                    {% for data in experience %}
+                    <tr>
+                        <td>{{ forloop.counter}}</td>
+                        <td>{{ data.course_name }}</td>
+                        <td>{{ data.awording_body }}</td>
+                        <td>{{ data.duration }}</td>
+                        <td>{{ data.country }}</td>
+                        <td>{{ data.remark }}</td>
+                    </tr>
+                    {% endfor %}
+                    
+                    
+                </table>
+            </div>
+                    
+                    
+                    <div class="col-sm-12" id="personal_info">
+                        <h3 style=" color: #ef248f;text-align: center;font-size: 37px;">Personal Information</h3><hr />
+                       
+                            <table class="table table-striped table-bordered"> 
+                                <tr>
+                                    <th>Father's Name </th>
+                                    <td>Mohiuddin Ahmed</td>
+                                </tr>
+                                <tr>
+                                    <th>Mother's Name </th>
+                                    <td>Hazera Begum</td>
+                                </tr>
+                                <tr>
+                                    <th>Village</th>
+                                    <td>Chaitajani</td>
+                                </tr>
+                                <tr>
+                                    <th>Post Office </th>
+                                    <td>Chaitajani</td>
+                                </tr>
+                                <tr>
+                                    <th>Upozila</th>
+                                    <td>Sreebordi</td>
+                                </tr>
+                                <tr>
+                                    <th>District</th>
+                                    <td>Sherpur</td>
+                                </tr>
+                                <tr>
+                                    <th></th>
+                                    <td><h5><strong>Prasent Address</strong></h5></td>
+                                    
+                                </tr>
+                                <tr>
+                                    <th>Village</th>
+                                    <td>43 Cantonment Road, Sankipara, Sadar, Mymensingh</td>
+                                </tr>
+                                <tr>
+                                    <th>Post Code</th>
+                                    <td>2200</td>
+                                </tr>
+                                <tr>
+                                    <th>Upozila</th>
+                                    <td>Sadar</td>
+                                </tr>
+                                <tr>
+                                    <th>District</th>
+                                    <td>Mymensingh</td>
+                                </tr>
+                            </table>
+                       
+                    </div>
+            </div>
+
+
+        </div>
+    </section>
+    <!--//news-->
+ 
+{% endblock  %}

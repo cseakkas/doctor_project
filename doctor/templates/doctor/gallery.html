@@ -1,0 +1,34 @@
+{% extends 'doctor/base.html' %}
+{% block title %} Photo Gallery{% endblock %}
+{% load staticfiles %}
+{% block content %}
+ 
+    <!--banner-bottom-->
+<section class="banner-bottom py-4">
+        <div class="container">
+            <div class="inner-sec">
+                <h3 class="tittle">
+                    {{ get_cat_id.gallery_category }}</h3>
+
+                <div class="gallery-lightbox">
+                    <div class="row">
+                            {% for data in gallery_list %}
+                        <div class="col-md-3 project-img">
+                            <a href="/static/doctor/media/{{ data.gallery_images }}" id="example2" class="showcase img-fluid" data-rel="lightcase:myCollection:slideshow" title="{{ data.gallery_title }}">
+                            <img src="/static/doctor/media/{{ data.gallery_images }}" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--//banner-bottom-->
+
+
+    <script src="{% static 'doctor/js/jquery-2.2.3.min.js' %}"></script>
+    <script src="{% static 'doctor/js/lightcase.js' %}"></script>
+    <script src="{% static 'doctor/js/jquery.events.touch.js' %}"></script>
+    {% endblock  %}

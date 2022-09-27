@@ -1,0 +1,26 @@
+{% extends 'doctor/base.html' %}
+{% block title %} What I Do || Category {% endblock %}
+{% load staticfiles %}
+{% block content %}
+ 
+    <!--/news-->
+    <section class="offer-service bg-light py-md-5 py-4">
+        <div class="container">
+            <div class="inner-sec py-md-5 py-4">
+                <h2>{{ get_operation.operation_title }}</h2>
+                <h4>{{ get_operation.operation_place }} {{ get_operation.operation_date }}</h4> <br> <br>
+                <div class="row" id="view_operation">
+                    <h5>
+                        <img src="/static/doctor/media/{{ get_operation.before_images }}" alt="">
+                    </h5>
+                    {{ get_operation.operation_details|safe }}
+                    <h5>
+                        <img src="/static/doctor/media/{{ get_operation.after_images }}" alt="">
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--//news-->
+ 
+{% endblock  %}

@@ -1,0 +1,40 @@
+{% extends 'doctor/base.html' %}
+{% block title %} My Education background {% endblock %}
+{% load staticfiles %}
+{% block content %}
+ 
+    <!--/news-->
+    <section class="offer-service bg-light py-md-5 py-4" id="page_height">
+        <div class="container">
+            <div class="inner-sec py-md-5 py-4">
+                <div class="row" id="education">
+                    <h3 class="page_title">Education background</h3>
+                    <table class="table table-striped table-hover table-bordered">
+                        <tr>
+                            <th>SL</th>
+                            <th>Name of Degree</th>
+                            <th>Institute Name</th>
+                            <th>Section</th>
+                            <th>Passing Year</th>
+                            <th>Board</th>
+                            <th>CGPA</th>
+                        </tr>
+                        {% for data in education %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ data.name_of_degree }}</td>
+                            <td>{{ data.institute_name }}</td>
+                            <td>{{ data.section }}</td>
+                            <td>{{ data.passing_year }}</td>
+                            <td>{{ data.board }}</td>
+                            <td>{{ data.CGPA }}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--//news-->
+ 
+{% endblock  %}

@@ -1,0 +1,34 @@
+{% extends 'doctor/base.html' %}
+{% block title %} What I Do || Category {% endblock %}
+{% load staticfiles %}
+{% block content %}
+ 
+    <!--/news-->
+    <section class="offer-service bg-light py-md-5 py-4">
+        <div class="container">
+            <div class="inner-sec py-md-5 py-4">
+                <h3 class="tittle text-center mb-lg-5 mb-3">{{ get_cat_id.category_name }}</h3>
+                <div class="row">
+                    {% for data in operation_list %}
+                    <div class="col-lg-3 service-in text-center">
+                         <div class="item">
+							<div class="cource-box-info text-center rounded">
+								<div class="card">
+									<a href="/operation/view/{{ data.pk }}/details/">
+										<div class="card-body">
+											<img src="/static/doctor/media/{{ data.before_images }}" alt="Collegien" class="img-fluid">
+											<h5 class="card-title mt-3">{{ data.operation_name }}</h5>
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+                    </div> 
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--//news-->
+ 
+{% endblock  %}

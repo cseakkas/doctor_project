@@ -1,0 +1,20 @@
+{% extends 'doctor/base.html' %}
+{% block title %} Program Details {% endblock %}
+{% load staticfiles %}
+{% block content %}
+ 
+    <!--/news-->
+    <section class="offer-service bg-light py-md-5 py-4">
+        <div class="container">
+            <div class="oparetion_image">
+                <h2>{{ program.program_title }}</h2>
+                <h4>{{ program.program_place }}, {{ program.program_date }}</h4> <br>
+                <img src="/static/doctor/media/{{ program.program_image }}" alt="">
+                {{ program.program_details|safe }}
+                
+            </div>
+        </div>
+    </section>
+    <!--//news-->
+
+{% endblock  %}

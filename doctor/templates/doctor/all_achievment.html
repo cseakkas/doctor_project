@@ -1,0 +1,32 @@
+{% extends 'doctor/base.html' %}
+{% block title %} Program List {% endblock %}
+{% load staticfiles %}
+{% block content %}
+
+    <section class="banner-bottom py-lg-5 py-lg-4 py-4">
+        <div class="container">
+            <div class="inner-sec py-lg-4 py-4">
+                <h3 class="tittle text-center mb-lg-5 mb-3">Best Award</h3>
+                <div class="owl-carousel owl-theme">
+                    {% for data in award_list %}
+                    <div class="item">
+                        <a href="">
+                            <div class="cource-box-info text-center rounded">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <img src="/static/doctor/media/{{data.award_images}}" alt="Collegien" class="img-fluid">
+                                        <h5 class="card-title mt-3">{{ data.award_title }}</h5>
+                                        <p class="card-text">
+                                           {{ data.place }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section> 
+
+{% endblock  %}

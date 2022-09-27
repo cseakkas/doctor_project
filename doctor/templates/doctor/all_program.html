@@ -1,0 +1,30 @@
+{% extends 'doctor/base.html' %}
+{% block title %} Program List {% endblock %}
+{% load staticfiles %}
+{% block content %}
+ 
+<section  id="recent-oparation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <center>
+                    <h1>My Best Program</h1>
+                </center>
+            </div>
+        </div>
+        <div class="row">
+            {% for data in program_list %}
+            <div class="col-sm-3">
+                <div class="whatdo-part3">
+                    <img src="/static/doctor/media/{{ data.program_image }}">
+                    <h4>{{ data.program_title }}</h4>
+                    {{ data.program_details|safe|slice:"100" }}
+                    <a href="/program/{{ data.pk }}/view-program/" style="text-align:left;">Read More <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock  %}
