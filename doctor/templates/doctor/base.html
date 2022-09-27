@@ -2,11 +2,11 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
-    {% load staticfiles %}
-    <title>Doctor Themes</title>
+    {% load static %} 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <meta name="keywords" content="" />
+    <title>{% block title %} Dr. Abdullah Al Mahmud Ratan {% endblock %} </title> 
     <script>
         addEventListener("load", function() {
             setTimeout(hideURLbar, 0);
@@ -57,8 +57,8 @@
             <div class="main_menu_pull">
                 <div class="container">
                     <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/profile">Profile</a></li>
+                        <li {% if request.path == "/" %} class="active" {% endif %}><a href="/">Home</a></li>
+                        <li {% if request.path == "/profile" %} class="active" {% endif %}><a href="/profile">Profile</a></li>
                         <li><a href="#">Album <i class="fas fa-angle-down"></i></a>
                             <ul>
                                 {% for data in gallery_category %}
@@ -66,8 +66,8 @@
                                 {% endfor %}
                             </ul>
                         </li>
-                        <li><a href="/program/all-program/">Programs</a></li>
-                        <li><a href="/achievment/all-achievment/">Achievment</a></li>
+                        <li {% if request.path == "/program/all-program/" %} class="active" {% endif %}><a href="/program/all-program/">Programs</a></li>
+                        <li {% if request.path == "/achievment/all-achievment/" %} class="active" {% endif %}><a href="/achievment/all-achievment/">Achievment</a></li>
                         <li><a href="#">Academic Activities <i class="fas fa-angle-down"></i></a>
                             <ul>
                                 <li><a href="">Lecture </a></li>
@@ -75,8 +75,8 @@
                                 <li><a href="" title="">Exam</a></li>
                             </ul>
                         </li>
-                        <li><a href="/social-activities/">Social Activities</a></li>
-                        <li><a href="">Login</a></li>
+                        <li {% if request.path == "/social-activities/" %} class="active" {% endif %}><a href="/social-activities/">Social Activities</a></li> 
+                        <li><a href="#">Blog</a></li> 
                     </ul>
                 </div>
             </div>
@@ -120,7 +120,7 @@
         </div>
     </section> 
     <div class="copy_right py-4 text-center">
-        <p>&copy; 2019 Doctor Theme. All rights reserved .</p>
+        <p>Copyright &copy; Dr. Abdullah Al Mahmud Ratan <span style="float:right;margin-right:50px;">Developed by : <a href="https://somadhanit.com/">Somadhan IT </a></span> </p>
     </div>
             <script src="{% static 'doctor/js/jquery-2.2.3.min.js' %}"></script>
             <script src="{% static 'doctor/js/lightcase.js' %}"></script>
